@@ -283,12 +283,7 @@
   <section id="contacto" class="formulario">
     <h2>Contáctanos</h2>
 
-   <form id="ContactoForm"> 
-     <script>
-    // URL de tu Google Apps Script
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbyLw3pSEsJn2mw9Joqp9olSXMwfFyQUrEVrpEbFjzrpOVHcEyOPWh3GJxnCHZyWGrs2vQ/exec
-';
-    
+  <form id="ContactoForm"> 
     
     <label for="nombre-contacto">Nombre completo:</label>
     <input type="text" id="nombre-contacto" name="NombreCompleto" placeholder="Nombre completo" required>
@@ -309,6 +304,46 @@
 
     <button type="submit">Enviar mensaje</button>
 </form>
+    <script>
+    // *** 1. CAMBIA ESTA URL ***
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyLw3pSEsJn2mw9Joqp9olSXMwfFyQUrEVrpEbFjzrpOVHcEyOPWh3GJxnCHZyWGrs2vQ/exec
+'; 
+    
+    // Obtenemos el formulario por su ID
+    const form = document.getElementById('ContactoForm');
+
+    form.addEventListener('submit', e => {
+        e.preventDefault(); 
+        
+        // Desactivamos el botón y mostramos un mensaje temporal
+        const submitButton = form.querySelector('button[type="submit"]');
+        submitButton.disabled = true;
+        submitButton.textContent = 'Enviando...';
+        
+        // Enviamos los datos usando Fetch API
+        fetch(scriptURL, { 
+            method: 'POST', 
+            body: new FormData(form) 
+        })
+        .then(response => {
+            if (response.ok) {
+                alert('✅ ¡Mensaje enviado! Gracias por contactarnos.');
+                form.reset(); 
+            } else {
+                alert('Error: No se pudo conectar con el servidor de Google. Revisa la implementación.');
+            }
+        })
+        .catch(error => {
+            alert('⚠️ Ocurrió un error de red: ' + error.message);
+            console.error('Error!', error.message);
+        })
+        .finally(() => {
+            // Restauramos el botón al finalizar
+            submitButton.disabled = false;
+            submitButton.textContent = 'Enviar mensaje';
+        });
+    });
+</script>
 
 
   <footer>
