@@ -283,37 +283,35 @@
   <section id="contacto" class="formulario">
     <h2>Contáctanos</h2>
 
-  <form id="ContactoForm"> 
-    
-    <label for="nombre-contacto">Nombre completo:</label>
-    <input type="text" id="nombre-contacto" name="NombreCompleto" placeholder="Nombre completo" required>
-    
-    <label for="correo-contacto">Correo electrónico:</label>
-    <input type="email" id="correo-contacto" name="CorreoElectronico" placeholder="ejemplo@.com" required>
+    <form id="padelForm"> 
+        <fieldset>
+            <legend></legend>
+            
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Nombre (s)">
+            <br><br>
+            
+            <label for="correo">Correo electrónico:</label>
+            <input type="email" id="correo" name="correo" placeholder="ejemplo@.com" required>
+            <br><br>
+            
+            <label for="telefono">Teléfono:</label>
+            <input type="tel" id="telefono" name="telefono" placeholder="12-223-2987" required>
+        </fieldset>
+        <br><br>
+        <button type="submit">Enviar Formulario</button>
+    </form>
+</div>
 
-    <label for="consulta">Asunto:</label>
-    <select id="consulta" name="TipoDeConsulta" required> 
-        <option value="">¿Qué necesitas?</option>
-        <option value="info">Quiero más información</option>
-        <option value="pedido">Hacer un pedido</option>
-        <option value="garantia">Garantía o soporte</option>
-    </select>
-
-    <label for="mensaje">Mensaje:</label>
-    <textarea id="mensaje" name="Mensaje" placeholder="Escribe tu mensaje aquí..." required></textarea>
-
-    <button type="submit">Enviar mensaje</button>
-</form>
-    <script>
-    // *** 1. CAMBIA ESTA URL ***
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbyLw3pSEsJn2mw9Joqp9olSXMwfFyQUrEVrpEbFjzrpOVHcEyOPWh3GJxnCHZyWGrs2vQ/exec
-'; 
+<script>
+    // URL de tu Google Apps Script
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyLw3pSEsJn2mw9Joqp9olSXMwfFyQUrEVrpEbFjzrpOVHcEyOPWh3GJxnCHZyWGrs2vQ/exec';
     
     // Obtenemos el formulario por su ID
-    const form = document.getElementById('ContactoForm');
+    const form = document.getElementById('padelForm');
 
     form.addEventListener('submit', e => {
-        e.preventDefault(); 
+        e.preventDefault(); // Detiene el envío normal (para que no te redirija)
         
         // Desactivamos el botón y mostramos un mensaje temporal
         const submitButton = form.querySelector('button[type="submit"]');
@@ -321,27 +319,26 @@
         submitButton.textContent = 'Enviando...';
         
         // Enviamos los datos usando Fetch API
-        fetch(scriptURL, { 
-            method: 'POST', 
-            body: new FormData(form) 
-        })
-        .then(response => {
-            if (response.ok) {
-                alert('✅ ¡Mensaje enviado! Gracias por contactarnos.');
-                form.reset(); 
-            } else {
-                alert('Error: No se pudo conectar con el servidor de Google. Revisa la implementación.');
-            }
-        })
-        .catch(error => {
-            alert('⚠️ Ocurrió un error de red: ' + error.message);
-            console.error('Error!', error.message);
-        })
-        .finally(() => {
-            // Restauramos el botón al finalizar
-            submitButton.disabled = false;
-            submitButton.textContent = 'Enviar mensaje';
-        });
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+                // El script devuelve JSON con {"result": "success"}
+                if (response.ok) {
+                    // Si es exitoso, mostramos una alerta y limpiamos el formulario.
+                    alert('¡Gracias por se parte!.');
+                    form.reset(); 
+                } else {
+                    alert('Error: No se pudo conectar con el servidor de Google.');
+                }
+            })
+            .catch(error => {
+                alert('Ocurrió un error al enviar: ' + error.message);
+                console.error('Error!', error.message);
+            })
+            .finally(() => {
+                // Restauramos el botón después de la operación
+                submitButton.disabled = false;
+                submitButton.textContent = 'Enviar Formulario';
+            });
     });
 </script>
 
