@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Visión+ — Gafas Modernas</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f8f8f8;
+      color: #222;
+    }
+    
+    header {
+      background: #ffffff;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #e0e0e0;
+      position: sticky;
+      top: 0;
+      z-index: 99;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+      color: #000;
+      letter-spacing: -1px;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 25px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-size: 15px;
+      transition: .2s;
+    }
+
+    nav a:hover {
+      color: #000;
+      font-weight: 600;
+    }
+    
+    .hero {
+      background: #dfe6e9;
+      padding: 80px 40px;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .hero-text {
+      max-width: 420px;
+    }
+
+    .hero-text h1 {
+      font-size: 40px;
+      margin-bottom: 15px;
+    }
+
+    .hero-text p {
+      font-size: 17px;
+      margin-bottom: 25px;
+    }
+
+    .btn {
+      background: #000;
+      color: #fff;
+      padding: 12px 22px;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: .2s;
+    }
+
+    .btn:hover {
+      background: #333;
+    }
+
+    .hero img {
+      width: 380px;
+      border-radius: 10px;
+    }
+
+    .productos {
+      padding: 60px 40px;
+    }
+
+    .productos h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 28px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+      transition: .2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .precio {
+      font-weight: bold;
+      margin: 10px 0;
+      font-size: 18px;
+    }
+
+    .about {
+      padding: 60px 40px;
+      background: #ffffff;
+      text-align: center;
+    }
+
+    .about h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    .about p {
+      max-width: 700px;
+      margin: auto;
+      font-size: 17px;
+      line-height: 1.6;
+    }
+
+    .formulario {
+      padding: 60px 40px;
+      background: #f1f1f1;
+    }
+
+    .formulario h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 28px;
+    }
+
+    form {
+      max-width: 450px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    input, textarea, select {
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 15px;
+      width: 100%;
+    }
+
+    textarea {
+      height: 120px;
+      resize: none;
+    }
+
+    button {
+      padding: 12px;
+      background: #000;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: .2s;
+    }
+
+    button:hover {
+      background: #333;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #000;
+      color: #fff;
+      margin-top: 40px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">Visión+</div>
+    <nav>
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#productos">Productos</a></li>
+        <li><a href="#about">Quiénes Somos</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+
+  <section id="inicio" class="hero">
+    <div class="hero-text">
+      <h1>Gafas modernas para una nueva visión</h1>
+      <p>Diseños minimalistas, materiales ligeros y lentes premium para tu día a día.</p>
+      <a href="#productos" class="btn">Ver productos</a>
+    </div>
+    
+  </section>
+
+
+  <section id="productos" class="productos">
+    <h2>Nuestros modelos</h2>
+
+    <div class="grid">
+
+      <div class="card">
+        <img src="https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1688389461-41xblYxoXOL.jpg?crop=1xw:1xh;center,top&resize=980:*" alt="Gafas 1">
+        <h3>Modelo Eclipse</h3>
+        <p class="precio">$799 MXN</p>
+        <p>Marco metálico negro, resistente y elegante.</p>
+      </div>
+
+      <div class="card">
+        <img src="https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1688389785-61-TbLGmJsL.jpg?crop=1.00xw:0.787xh;0,0.106xh&resize=980:*" alt="Gafas 2">
+        <h3>Modelo Aura</h3>
+        <p class="precio">$950 MXN</p>
+        <p>Diseño ligero con montura azul marino premium.</p>
+      </div>
+
+      <div class="card">
+        <img src="https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1688389615-gafas-de-sol-persol-64a2c7d47b31d.jpg?crop=1xw:1xh;center,top&resize=980:*" alt="Gafas 3">
+        <h3>Modelo Nova</h3>
+        <p class="precio">$1,150 MXN</p>
+        <p>Estilo clásico renovado con acabados mate.</p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <section id="about" class="about">
+    <h2>Quiénes somos</h2>
+    <p>
+      En <strong>Visión+</strong> creemos que unas gafas no solo corrigen tu vista,  
+      también cuentan tu estilo. Somos una marca independiente dedicada a crear  
+      diseños minimalistas y modernos utilizando materiales de alta calidad.  
+      Nuestro objetivo es ofrecer comodidad, durabilidad y estética en un solo producto.
+    </p>
+  </section>
+
+
+  <section id="contacto" class="formulario">
+    <h2>Contáctanos</h2>
+
+   <form id="ContactoForm"> 
+    
+    <label for="nombre-contacto">Nombre completo:</label>
+    <input type="text" id="nombre-contacto" name="NombreCompleto" placeholder="Nombre completo" required>
+    
+    <label for="correo-contacto">Correo electrónico:</label>
+    <input type="email" id="correo-contacto" name="CorreoElectronico" placeholder="ejemplo@.com" required>
+
+    <label for="consulta">Asunto:</label>
+    <select id="consulta" name="TipoDeConsulta" required> 
+        <option value="">¿Qué necesitas?</option>
+        <option value="info">Quiero más información</option>
+        <option value="pedido">Hacer un pedido</option>
+        <option value="garantia">Garantía o soporte</option>
+    </select>
+
+    <label for="mensaje">Mensaje:</label>
+    <textarea id="mensaje" name="Mensaje" placeholder="Escribe tu mensaje aquí..." required></textarea>
+
+    <button type="submit">Enviar mensaje</button>
+</form>
+
+
+  <footer>
+    ©️ 2025 Visión+ — Shelsy Suastegui.
+  </footer>
+
+</body>
+</html>
